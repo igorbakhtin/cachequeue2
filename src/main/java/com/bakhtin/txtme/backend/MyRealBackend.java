@@ -25,7 +25,7 @@ public class MyRealBackend<E>{
             log.debug("Backend. Sent {} complete. count {}", event, count);
             return true;
         } else {
-            log.debug("Backend. Try sent {} - Backend is dead", event);
+            log.debug("Backend. Error when send {} - Backend is dead", event);
             return false;
         }
     }
