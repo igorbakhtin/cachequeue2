@@ -4,6 +4,7 @@ import com.bakhtin.txtme.backend.MyRealBackend;
 import com.bakhtin.txtme.dto.MyEvent;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,7 @@ class ProxyControllerTest {
     @LocalServerPort
     private int port;
     private URL base;
+
     @Autowired
     private TestRestTemplate template;
 
@@ -36,6 +38,12 @@ class ProxyControllerTest {
 
     @Value("${cachequeue.capacity:100}")
     private int capacity;
+
+    @BeforeEach
+    @SneakyThrows
+    public void init() {
+        base = new URL("http://localhost:" + port + "/");;
+    }
 
     @Test
     @SneakyThrows
@@ -109,14 +117,10 @@ class ProxyControllerTest {
     @SneakyThrows
     AtomicInteger postEvents(int eventCount) {
         AtomicInteger successPostEvent = new AtomicInteger();
-        base = new URL("http://localhost:" + port + "/");
-
         for (int i = 0; i < eventCount; i++) {
             int id = i;
             executor.execute(() -> {
-
-                MyEvent event = new MyEvent(id);
-                ResponseEntity<String> result = template.postForEntity(base.toString(), event, String.class);
+                ResponseEntity<String> result = template.postForEntity(base.toString(), new MyEvent(id), String.class);
                 if (result.getStatusCodeValue() == 200) {
                     successPostEvent.getAndIncrement();
                 }
