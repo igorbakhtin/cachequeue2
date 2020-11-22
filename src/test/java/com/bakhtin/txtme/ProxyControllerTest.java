@@ -114,7 +114,9 @@ class ProxyControllerTest {
         for (int i = 0; i < eventCount; i++) {
             int id = i;
             executor.execute(() -> {
-                ResponseEntity<String> result = template.postForEntity(base.toString(), new MyEvent(id), String.class);
+
+                MyEvent event = new MyEvent(id);
+                ResponseEntity<String> result = template.postForEntity(base.toString(), event, String.class);
                 if (result.getStatusCodeValue() == 200) {
                     successPostEvent.getAndIncrement();
                 }
