@@ -48,7 +48,7 @@ class ProxyControllerTest {
         AtomicInteger successPostEvent = postEvents(send);
 
         Thread.sleep(1000);
-        log.debug("checkWhenBackendAlive - Events: sent to proxy {}, add to front {}, sent to back {}",
+        log.debug("checkWhenBackendAlive - Events: sent to proxy {}, added to front {}, sent to back {}",
                 send, successPostEvent.get(), backend.getCompletedRequests());
         assertEquals(successPostEvent.get(), backend.getCompletedRequests());
         assertEquals(send, backend.getCompletedRequests());
@@ -71,7 +71,7 @@ class ProxyControllerTest {
         backend.setBackendOnline(true);
         Thread.sleep(3000);
 
-        log.debug("checkCapacityWhenBackendDead - Events: sent to proxy {}, add to front {}, sent to back {}",
+        log.debug("checkCapacityWhenBackendDead - Events: sent to proxy {}, added to front {}, sent to back {}",
                 send, successPostEvent.get(), backend.getCompletedRequests());
         assertEquals(successPostEvent.get(), backend.getCompletedRequests());
         // часть не вошла в очередь - потеряли и это норм
@@ -101,7 +101,7 @@ class ProxyControllerTest {
         Thread.sleep(3000);
 
         int successPostEvent = successPostEvent1.get() + successPostEvent2.get();
-        log.debug("checkWhenBackendAliveThenDead - Events: sent to proxy {}, add to front {}, sent to back {}",
+        log.debug("checkWhenBackendAliveThenDead - Events: sent to proxy {}, added to front {}, sent to back {}",
                 aliveCount + deadCount, successPostEvent, backend.getCompletedRequests());
         assertEquals(successPostEvent, backend.getCompletedRequests());
     }
