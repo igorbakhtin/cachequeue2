@@ -1,7 +1,7 @@
-package com.bakhtin.txtme;
+package com.bakhtin.testqueue;
 
-import com.bakhtin.txtme.backend.MyRealBackend;
-import com.bakhtin.txtme.dto.MyEvent;
+import com.bakhtin.testqueue.backend.MyRealBackend;
+import com.bakhtin.testqueue.dto.MyEvent;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;

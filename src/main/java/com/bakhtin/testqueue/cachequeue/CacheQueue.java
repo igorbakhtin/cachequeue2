@@ -1,4 +1,4 @@
-package com.bakhtin.txtme.cachequeue;
+package com.bakhtin.testqueue.cachequeue;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

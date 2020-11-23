@@ -1,7 +1,7 @@
-package com.bakhtin.txtme;
+package com.bakhtin.testqueue;
 
-import com.bakhtin.txtme.backend.MyCachedBackend;
-import com.bakhtin.txtme.dto.MyEvent;
+import com.bakhtin.testqueue.backend.MyCachedBackend;
+import com.bakhtin.testqueue.dto.MyEvent;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

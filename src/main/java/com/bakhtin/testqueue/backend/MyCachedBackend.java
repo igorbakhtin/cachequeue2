@@ -1,6 +1,6 @@
-package com.bakhtin.txtme.backend;
+package com.bakhtin.testqueue.backend;
 
-import com.bakhtin.txtme.cachequeue.CacheQueue;
+import com.bakhtin.testqueue.cachequeue.CacheQueue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

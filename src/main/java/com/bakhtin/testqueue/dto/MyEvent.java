@@ -1,4 +1,4 @@
-package com.bakhtin.txtme.dto;
+package com.bakhtin.testqueue.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

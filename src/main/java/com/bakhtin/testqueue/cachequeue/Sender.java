@@ -1,4 +1,4 @@
-package com.bakhtin.txtme.cachequeue;
+package com.bakhtin.testqueue.cachequeue;
 
 @FunctionalInterface
 public interface Sender<T> {
